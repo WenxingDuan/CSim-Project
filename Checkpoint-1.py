@@ -2,7 +2,7 @@ class Polynomial(object):
     def __init__(self, a):
         self.a = a
         # self.x = int(x)
-
+        #this is for testing
     def printPolynomial(self):
         print("P(x)=", end="")
         for i in range(0, len(self.a)):
