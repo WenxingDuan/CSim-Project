@@ -1,7 +1,6 @@
 class Polynomial(object):
     def __init__(self, a):
         self.a = a
-        # self.x = int(x)
 
     def printPolynomial(self):
         print("P(x)=", end="")
