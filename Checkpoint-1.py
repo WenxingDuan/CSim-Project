@@ -10,7 +10,6 @@ class Polynomial(object):
                 if self.a[i] != 0:
                     print(self.a[i], end=" ")
                     #ignore the 0 terms
-
             if i == 1:
             #not print '^1' after the power 1 term
                 if self.a[i] < 0:
@@ -18,7 +17,6 @@ class Polynomial(object):
                 if self.a[i] > 0:
                     print("+", self.a[i], "x", end="")
                     #put '+' in front of positive number and '-' on negetive number
-
             if i > 1:
                 if self.a[i] < 0:
                     print(self.a[i], "x ^", i, end="")

@@ -20,7 +20,6 @@ class mandelbrot(object):
                 return i
         return self.nMax
         # Check if c in Mandelbrot set. If not, return iteration number
-
     def drawMandelbrot(self):
         x = np.linspace(self.xMin, self.xMax, self.resolution)
         y = np.linspace(self.yMin, self.yMax, self.resolution)

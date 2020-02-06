@@ -16,7 +16,7 @@ class Radioactive(object):
         self.n = int(n)
         self.half_life = math.log(2) / decay_constant  #real half-life
         self.average_lifetime = 1 / decay_constant
-#this
+        
     def print_nuclei(self):
         for i in range(0, len(self.nucler)):
             for j in range(0, len(self.nucler)):
