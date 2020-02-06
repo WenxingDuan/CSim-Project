@@ -80,7 +80,9 @@ class julia(object):
 def main():
     mandelbrot(-2.025, 0.6, -1.125, 1.125, 500, 255).drawMandelbrot()
     julia(0, -1,-2.025, 0.6, -1.125, 1.125, 500, 255).drawJulia()
-    # julia(0, -1,-2.025, 0.6, -1.125, 1.125, 500, 255).drawJulia()
+
+
+
 
 
 if __name__ == '__main__':
