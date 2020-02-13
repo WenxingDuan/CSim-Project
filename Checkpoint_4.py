@@ -81,7 +81,6 @@ class road(object):
     def drawPic(self):
         plt.imshow(self.finalList,
                    extent=[0, self.roadLength, 0, self.totalTime],cmap=plt.cm.gray_r)
-        
         plt.show()
 
 
