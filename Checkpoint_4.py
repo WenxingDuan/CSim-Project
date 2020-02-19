@@ -1,5 +1,6 @@
 import random
 import matplotlib.pyplot as plt
+import matplotlib.patches as patches
 
 
 class road(object):
@@ -80,11 +81,40 @@ class road(object):
 
     def drawPic(self):
         plt.imshow(self.finalList,
-                   extent=[0, self.roadLength, 0, self.totalTime],cmap=plt.cm.gray_r)
+                   extent=[0, self.roadLength, 0, self.totalTime],
+                   cmap=plt.cm.gray_r)
         plt.show()
 
 
-theRoad = road(2, 5, 5)
-theRoad.roadGenerate()
-print(theRoad.timeLoop())
-theRoad.drawPic()
+def averageSpeed(carNum, roadLength):
+    theRoad = road(carNum, roadLength, roadLength*2)
+    theRoad.roadGenerate()
+    roadList = list(reversed(theRoad.timeLoop()))
+    difference = 0
+    i= roadLength*2 - 1
+    for j in range(0, len(roadList[i])):
+        difference = difference + abs(roadList[i + 1][j] - roadList[i][j])
+    return (difference / 2) / sum(roadList[0])
+
+
+def main():
+    carNum = int(input("Car Numer: "))
+    roadLength = int(input("Road Length: "))
+    time = int(input("Time: "))
+    theRoad = road(carNum, roadLength, time)
+    theRoad.roadGenerate()
+    theRoad.timeLoop()
+    theRoad.drawPic()
+    speedList = []
+    for i in range(1, roadLength + 1):
+        speedList.append((i, averageSpeed(i, roadLength)))
+    # print(speedList)
+    ax = plt.axes()
+    for i in speedList:
+        ax.add_patch(patches.Circle(i, 0.01, color='r'))
+    plt.xlim(0, roadLength)
+    plt.ylim(0, 1)
+    plt.show()
+
+if __name__ == '__main__':
+    main()
