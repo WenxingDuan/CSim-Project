@@ -1,30 +1,23 @@
-import math
-import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
-# create plot elements
-fig = plt.figure()
-ax = plt.axes()
+from tkinter import*
+import time
 
-# create empty list for circles
-patches = []
+root = Tk()
+root.geometry("250x150")
 
-# create circles centred at initial position and them append them to the list
-patches.append(plt.Circle((0, math.sin(0)), 0.1, color = 'g', animated = True))
-patches.append(plt.Circle((0, math.cos(0)), 0.1, color = 'b', animated = True))
+val = StringVar()
+l1 = Label(root,textvariable = val)
+l1.pack()
+val = val.set("............")
 
-# add circles to axes
-for i in range(0, len(patches)):
-    ax.add_patch(patches[i])
 
-def init():
-    # initialiser for animator
-    return patches
-     
-def animate(i):
-    # update the position of the circles
-    xpos += xincr
-    patches[0].center = (xpos, math.sin(xpos))
-    patches[1].center = (xpos, math.cos(xpos))
-    return patches
-anim = FuncAnimation(fig, animate, init_func = init, frames = 50, repeat = False, interval = 50, blit = True)
-plt.show()
+l2 = Label(root,text = "ppp")
+l2.pack()
+
+for a in range(10000):
+    i = str(a)
+    #val = val.set("8888")
+    l2.config(text=i)
+    a += 1
+    time.sleep(0.1)
+
+root.mainloop()
