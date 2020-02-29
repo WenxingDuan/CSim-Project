@@ -83,6 +83,8 @@ class road(object):
         plt.imshow(self.finalList,
                    extent=[0, self.roadLength, 0, self.totalTime],
                    cmap=plt.cm.gray_r)
+        plt.xlabel("Road")
+        plt.ylabel("Time")
         plt.show()
 
 
@@ -113,7 +115,9 @@ def main():
     for i in speedList:
         ax.add_patch(patches.Circle(i, 0.01, color='r'))
     plt.xlim(0, roadLength)
+    plt.xlabel("Car number")
     plt.ylim(0, 1)
+    plt.ylabel("Speed")
     plt.show()
 
 if __name__ == '__main__':

@@ -42,10 +42,11 @@ class simulation(object):
         self.r1 = self.r1 + self.v1 * t
 
     def animate(self, i):
-        self.update(i / 10)
+        self.update(i / 10 * self.timestep)
         self.patches[0].center = (self.r1[0], self.r1[1])
         self.patches[1].center = (self.r2[0], self.r2[1])
         self.displayEnergies()
+        #print(self.v2)
         return self.patches
 
     def init(self):
@@ -61,9 +62,9 @@ class simulation(object):
         anim = FuncAnimation(fig,
                              self.animate,
                              init_func=self.init,
-                             frames=60,
+                             frames=120,
                              repeat=True,
-                             interval=0.3,
+                             interval=1,
                              blit=True)
         plt.show()
 
@@ -73,6 +74,6 @@ class simulation(object):
 
 
 a = simulation(6.4185 * 10**23, np.array([0, 0]), np.array([0, 0]),
-               1.06 * 10**16, 9.3773 * 10**6, 10)
+               1.06 * 10**16, 9.3773 * 10**6, 0.5)
 
 a.display()
