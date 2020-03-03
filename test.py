@@ -85,7 +85,7 @@ class Game:
         order_dict={}
         for i in range(3):
             order=int(input('你想将%s放在第几个上场？（输入数字1~3）'%self.players[i].name))
-            order_dict[str(order)]=self.players[i]
+            order_dict[order]=self.players[i]
         self.players=[]
         for i in range(1,4):
             self.players.append(order_dict[i])
@@ -111,4 +111,3 @@ class Game:
                 self.enemies[i].name,self.players[i].name,self.players[i].life)
                 print('--------------------------------------------')
                 time.sleep[1]
-            #if self.players[i].life<=0 and self.enemies

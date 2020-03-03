@@ -40,13 +40,15 @@ class simulation(object):
         a1 = force1 / self.m1
         self.v1 = self.v1 + a1 * t
         self.r1 = self.r1 + self.v1 * t
+        #print(norm(self.v2))
+
+        #update the velocity and position
 
     def animate(self, i):
         self.update(i /10 * self.timestep)
         self.patches[0].center = (self.r1[0], self.r1[1])
         self.patches[1].center = (self.r2[0], self.r2[1])
         self.displayEnergies()
-        #print(self.v2)
         return self.patches
 
     def init(self):
