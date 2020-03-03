@@ -9,7 +9,7 @@ from numpy.linalg import norm
 class simulation(object):
     def __init__(self, marsMass, marsIninitialPosition, marsIninitialVelocity,
                  phobosMass, phobosRadius, timestep):
-        self.G = 6.67 * (10**(-10))
+        self.G = 6.67 * (10**(-11))
         self.m1 = marsMass
         self.r1 = marsIninitialPosition  #Array([0,0])
         self.v1 = marsIninitialVelocity  #Array([0,0])
@@ -42,7 +42,7 @@ class simulation(object):
         self.r1 = self.r1 + self.v1 * t
 
     def animate(self, i):
-        self.update(i / 10 * self.timestep)
+        self.update(i /10 * self.timestep)
         self.patches[0].center = (self.r1[0], self.r1[1])
         self.patches[1].center = (self.r2[0], self.r2[1])
         self.displayEnergies()
@@ -74,6 +74,6 @@ class simulation(object):
 
 
 a = simulation(6.4185 * 10**23, np.array([0, 0]), np.array([0, 0]),
-               1.06 * 10**16, 9.3773 * 10**6, 0.5)
+               1.06 * 10**16, 9.3773 * 10**6, 1)
 
 a.display()
